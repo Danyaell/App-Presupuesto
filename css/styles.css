@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    color: #555;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.clean::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+header {
+    height: 60vh;
+    width: 100%;
+    padding-top: 150px;
+    background: url(fondo.png), linear-gradient(to left, #0a5e8f, rgb(107, 12, 119));
+    color: white;
+}
+
+.title {
+    padding: 0;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.presupuesto {
+    position: absolute;
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.presupuesto_valor {
+    font-size: 46px;
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.presupuesto_ingreso, .presupuesto_egreso {
+    padding: 12px;
+    text-transform: uppercase;
+}
+
+.presupuesto_ingreso {
+    margin-bottom: 10px;
+    background-color: rgba(53, 187, 153, 0.801);
+}
+
+.presupuesto_egreso {
+    background-color: rgba(216, 74, 39, 0.829);
+}
