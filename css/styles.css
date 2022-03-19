@@ -1,7 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
     margin: 0;
     color: #555;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    height: 100vh;
 }
 
 .clean::after {
@@ -11,9 +19,11 @@ body {
 }
 
 header {
-    height: 60vh;
+    position: relative;
+    height: 50vh;
     width: 100%;
     padding-top: 150px;
+    padding-bottom: 100px;
     background: url(fondo.png), linear-gradient(to left, #0a5e8f, rgb(107, 12, 119));
     color: white;
 }
@@ -40,6 +50,11 @@ header {
     letter-spacing: 2px;
 }
 
+.derecha {
+    float: right;
+    display: flex;
+}
+
 .presupuesto_ingreso, .presupuesto_egreso {
     padding: 12px;
     text-transform: uppercase;
@@ -47,9 +62,118 @@ header {
 
 .presupuesto_ingreso {
     margin-bottom: 10px;
-    background-color: rgba(53, 187, 153, 0.801);
+    background-color: #35bb99cc;
 }
 
-.presupuesto_egreso {
-    background-color: rgba(216, 74, 39, 0.829);
+.presupuesto_egreso { background-color: #d84a27d3; }
+
+.presupuesto_ingreso--texto, .presupuesto_egreso--texto {
+    float: left;
+    margin-top: 2px;
+    font-size: 13px;
 }
+
+.presupuesto_ingreso--valor, .presupuesto_egreso--valor {
+    float: left;
+    letter-spacing: 1px;
+}
+
+.presupuesto_ingreso--porcentaje, .presupuesto_egreso--porcentaje {
+    float: right;
+    width: 40px;
+    font-size: 11px;
+    padding: 3px 0;
+    margin-left: 10px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.presupuesto_ingreso--porcentaje { background-color: #7edbc481; }
+
+.presupuesto_egreso--porcentaje { background-color: #e48c7675; }
+
+.contenedor {
+    width: 100%;
+    margin: 60px auto;
+    padding: 3%;
+}
+
+.ingreso {
+    float: left;
+    width: 47%;
+}
+
+.egreso {
+    float: right;
+    width: 47%;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.titulo_ingreso { color: #28a888; }
+.titulo_egreso { color: #d84a27; }
+
+.elemento {
+    padding: 13px;
+    border-bottom: 1px solid #e7e7e7;
+    list-style: none;
+}
+
+.elemento:first-child { border-top: 1px solid #e7e7e7; }
+.elemento:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.elemento_descripcion { float: left; }
+
+.elemento_valor {
+    float: left;
+    transition: transform 0.3s;
+}
+
+.ingreso .elemento_valor, .ingreso .elemento_eliminar--btn { color: #28a888; }
+.egreso .elemento_valor, .egreso .elemento_eliminar--btn { color: #d84a27; }
+
+.elemento_porcentaje {
+    float: right;
+    margin-left: 20px;
+    font-size: 11px;
+    padding: 3px;
+    width: 45px;
+    text-align: center;
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
+.ingreso ul li div.derecha .elemento_porcentaje {
+    background-color: #7edbc481;
+    color: #28a888;
+}
+
+.egreso ul li div.derecha .elemento_porcentaje {
+    background-color: #e48c7675;
+    color: #d84a27;
+}
+
+.elemento_eliminar { float: left; }
+
+.elemento_eliminar--btn {
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 1;
+    display: none;
+}
+
+.elemento_eliminar--btn:focus { outline: none; }
+.elemento_eliminar--btn:active { transform: translateY(2px); }
+
+.elemento:hover .elemento_eliminar--btn { display: block; }
+.elemento:hover .elemento_valor { transform: translateX(-15px); }
+.elemento:hover .elemento_porcentaje { transform: translateX(-15px); }
