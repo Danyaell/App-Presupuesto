@@ -7,99 +7,53 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="cargarApp()">
     <header>
         <div class="presupuesto">
             <h1 class="title">Presupuesto Disponible:</h1>
-            <div class="presupuesto_valor" id="presupuesto">$ 8,500.00</div>
+            <div class="presupuesto_valor" id="presupuesto"></div>
             <div class="presupuesto_ingreso clean">
                 <div class="presupuesto_ingreso--texto">Ingresos</div>
                 <div class="derecha">
-                    <div class="presupuesto_ingreso--valor">$ 12,000.00</div>
-                    <div class="presupuesto_ingreso--porcentaje">70%</div>
+                    <div class="presupuesto_ingreso--valor" id="ingresos"></div>
+                    <div class="presupuesto_ingreso--porcentaje"></div>
                 </div>
             </div>
             <div class="presupuesto_egreso clean">
                 <div class="presupuesto_egreso--texto">Egresos</div>
                 <div class="derecha">
-                    <div class="presupuesto_egreso--valor">- $ 3,500</div>
-                    <div class="presupuesto_egreso--porcentaje">30%</div>
+                    <div class="presupuesto_egreso--valor" id="egresos"></div>
+                    <div class="presupuesto_egreso--porcentaje" id="porcentaje-egresos"></div>
                 </div>
             </div>
         </div>
     </header>
 
+    <form id="forma" onsubmit="return false">
+        <div class="agregar">
+            <div class="agregar_contenedor">
+                <select class="agregar_tipo" id="tipo">
+                    <option value="ingreso">+</option>
+                    <option value="egreso">-</option>
+                </select>
+                <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción" id="descripcion"/>
+                <input type="number" class="agregar_valor" placeholder="Valor" id="valor" step="any"/>
+                <button class="agregar_btn" onclick="agregarDato()">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+
     <div class="contenedor clean">
         <div class="ingreso">
             <h2 class="titulo_ingreso">Ingresos</h2>
-            <ul>
-                <li class="elemento clean">
-                    <div class="elemento_descripcion">Sueldo</div>
-                    <div class="derecha">
-                        <div class="elemento_valor">$ 12,000.00</div>
-                        <div class="elemento_porcentaje">40%</div>
-                        <div class="elemento_eliminar">
-                            <button class="elemento_eliminar--btn">
-                                <ion-icon name="close-circle-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-                <li class="elemento clean">
-                    <div class="elemento_descripcion">Venta de Auto</div>
-                    <div class="derecha">
-                        <div class="elemento_valor">$ 15,000.00</div>
-                        <div class="elemento_porcentaje">60%</div>
-                        <div class="elemento_eliminar">
-                            <button class="elemento_eliminar--btn">
-                                <ion-icon name="close-circle-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-                <li class="elemento clean">
-                    <div class="elemento_descripcion">Regalías</div>
-                    <div class="derecha">
-                        <div class="elemento_valor">$ 2,000.00</div>
-                        <div class="elemento_porcentaje">3.4%</div>
-                        <div class="elemento_eliminar">
-                            <button class="elemento_eliminar--btn">
-                                <ion-icon name="close-circle-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <ul id="lista-ingresos"></ul>
         </div>
 
         <div class="egreso">
             <h2 class="titulo_egreso">Egresos</h2>
-            <ul>
-                <li class="elemento clean">
-                    <div class="elemento_descripcion">Despensa</div>
-                    <div class="derecha">
-                        <div class="elemento_valor">- $3,000.00</div>
-                        <div class="elemento_porcentaje">50%</div>
-                        <div class="elemento_eliminar">
-                            <button class="elemento_eliminar--btn">
-                                <ion-icon name="close-circle-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-                <li class="elemento clean">
-                    <div class="elemento_descripcion">Renta Departamento</div>
-                    <div class="derecha">
-                        <div class="elemento_valor">- $6,000.00</div>
-                        <div class="elemento_porcentaje">50%</div>
-                        <div class="elemento_eliminar">
-                            <button class="elemento_eliminar--btn">
-                                <ion-icon name="close-circle-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <ul id="lista-egresos"></ul>
         </div>
     </div>
 
